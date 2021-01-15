@@ -1,6 +1,6 @@
 <template>
-    <base-card>
-    <h2>Test Formulier</h2>
+    <div>
+        <h2>Test Formulier</h2>
         <form @submit.prevent="submitData">
             <div class="form-control">
                 <label for="serial">Serienummer:</label>
@@ -26,20 +26,13 @@
                 <label for="remark">Opmerking:</label>
                 <input type="text" name="remark" id="remark" ref="remarkInput">
             </div>
-            <div class="form-control"><base-button>Print Rapport</base-button></div>
+            <div class="form-control"><base-button @click="submitData">Print Rapport</base-button></div>
 
         </form>
-    </base-card>
+    </div>
 </template>
-
 <script>
 export default {
-    inject: ['PrintTestForm'],
-    data() {
-        return {
-            inputIsInvalid: false,
-        };
-    },
     methods: {
         submitData() {
             const enteredSerialNumber = this.$refs.serialInput.value;
@@ -50,13 +43,13 @@ export default {
                 return;
             }
 
-            this.PrintTestform(enteredSerialNumber, enteredRemark);
+            this.$store.commit('togglePrintformButtonState', true);
+            this.$store.commit('saveRemark', enteredRemark );
+            this.$store.commit('saveSerial', enteredSerialNumber);
         }
     }
-
 }
 </script>
-
 <style scoped>
 label {
   font-weight: bold;

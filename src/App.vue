@@ -1,18 +1,23 @@
 <template>
   <the-header></the-header>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <test-form></test-form>
+  <img alt="Pan Oston logo" src="./assets/PO_logo.png">
+  <test-main></test-main>
 </template>
 
 <script>
 import TheHeader from './components/nav/TheHeader.vue'
-import TestForm from './components/gui/TestForm.vue'
+import TestMain from './components/gui/TestMain.vue'
 
 export default {
   components: {
     TheHeader,
-    TestForm
+    TestMain,
   },
+  data() {
+    return {
+      buttonPrintFormTest: false,
+    };
+  }
 
 }
 </script>
