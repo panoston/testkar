@@ -1,6 +1,5 @@
 <template>
   <the-header></the-header>
-  <img alt="Pan Oston logo" src="./assets/PO_logo.png">
   <test-main></test-main>
 </template>
 
@@ -13,12 +12,6 @@ export default {
     TheHeader,
     TestMain,
   },
-  data() {
-    return {
-      buttonPrintFormTest: false,
-    };
-  }
-
 }
 </script>
 
@@ -29,6 +22,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0px;
 }
 </style>

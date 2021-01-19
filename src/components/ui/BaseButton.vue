@@ -18,6 +18,9 @@ button {
     border: 1px solid #3a0061;
     color: white;
     cursor: pointer;
+    position: relative;
+    left: 160x;
+    /* margin-left: 50px; */
 }
 
 button:hover,
