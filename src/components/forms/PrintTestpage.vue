@@ -1,10 +1,6 @@
 <template>
     <div>
-       <h1>Print Testform</h1>
-       <form @submit.prevent="submitData">
-            <div class="form-control"><base-button @click="submitPrintData">Print Rapport</base-button></div>
-            <div class="form-control"><base-button @click="submitBack">Terug</base-button></div>
-       </form>
+        <base-button @click="submitPrintData">Print Testbon</base-button>
     </div>
 </template>
 
