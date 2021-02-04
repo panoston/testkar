@@ -10,14 +10,14 @@
             </div>
             <div class="form-control">
                 <label for="testMonitor"><span>Test monitor:</span>
-                <base-button id="testMonitor" @click="testDeviceButton('monitor')" v-if="showButtonMonitor">Test</base-button>
+                <base-button id="testMonitor" @click="testDeviceButton('monitor')" v-if="showButtonMonitor" class="basebutton">Test</base-button>
                 <img class="result" src="../../assets/green-check.png" v-if="showMonitorResultOk">
                 <img class="result" src="../../assets/red-x.png" v-if="showMonitorResultNOk">
                 </label>
             </div>
             <div class="formcontrol">
                 <label for="testPrinter"><span>Test Printer:</span>
-                <base-button id="testPrinter" @click="testDeviceButton('printer')" v-if="showButtonPrinter">Test</base-button>
+                <base-button id="testPrinter" @click="testDeviceButton('printer')" v-if="showButtonPrinter" class="basebutton">Test</base-button>
                 <img class="result" src="../../assets/green-check.png" v-if="showPrinterResultOk">
                 <img class="result" src="../../assets/red-x.png" v-if="showPrinterResultNOk">
                 <img class="result" src="../../assets/na.png" v-if="showPrinterResultNA">
@@ -25,7 +25,7 @@
             </div>
             <div class="formcontrol">
                 <label for="testScanner"><span>Test Scanner:</span>
-                <base-button id="testScanner" @click="testDeviceButton('scanner')" v-if="showButtonScanner">Test</base-button>
+                <base-button id="testScanner" @click="testDeviceButton('scanner')" v-if="showButtonScanner" class="basebutton">Test</base-button>
                 <img class="result" src="../../assets/green-check.png" v-if="showScannerResultOk">
                 <img class="result" src="../../assets/red-x.png" v-if="showScannerResultNOk">
                 <img class="result" src="../../assets/na.png" v-if="showScannerResultNA">
@@ -33,7 +33,7 @@
             </div>
             <div class="form-control">
                 <label for="testWebcam"><span>Test Webcam:</span>
-                <base-button id="testWebcam" @click="testDeviceButton('webcam')" v-if="showButtonWebCam">Test</base-button>
+                <base-button id="testWebcam" @click="testDeviceButton('webcam')" v-if="showButtonWebCam" class="basebutton">Test</base-button>
                 <img class="result" src="../../assets/green-check.png" v-if="showWebcamResultOk">
                 <img class="result" src="../../assets/red-x.png" v-if="showWebcamResultNOk">
                 <img class="result" src="../../assets/na.png" v-if="showWebcamResultNA">
@@ -41,7 +41,8 @@
             </div>
             <div class="form-control">
                 <label for="remark"><span>Opmerking:</span>
-                <input type="text" name="remark" id="remark" ref="remarkInput">
+                <textarea name="remark" id="remark" ref="remarkInput"></textarea>
+                
                 </label>
             </div>
             <div class="form-control"><base-button @click="submitData">Print Rapport</base-button></div>
@@ -227,36 +228,15 @@ export default {
         },
         testDeviceButton(device) {
             this.$store.commit('updateTestedDevice',device);
-            
-            // this.$store.commit('toggleShowAlert');
         },        
-        // getTestResult(device) {
-        //     // const testedDevice = device;
-        //     if(device === 'monitor') {
-        //         const testDeviceInput = this.$store.getters.getTestResultMonitor;    
-        //     }
-        //     else if(device === 'printer') {
-        //         const testDeviceInput = this.$store.getters.getTestResultPrinter;    
-        //     }
-        //     else if(device === 'scanner') {
-        //         const testDeviceInput = this.$store.getters.getTestResultScanner;    
-        //     }
-        //     else if(device === 'webcam') {
-        //         const testDeviceInput = this.$store.getters.getTestResultWebcam;    
-        //     }
 
-        //     if (testDeviceInput === 'Ja') {
-        //         return true;
-        //     }
-        //     else if(testDeviceInput === 'Nee') {
-        //         return false;
-        //     }
-        //     console.log(testDeviceInput)
-        // }
     }
 }
 </script>
 <style scoped>
+body {
+    background-size: cover;
+}
 label {
   font-weight: bold;
   display: block;
@@ -270,23 +250,37 @@ textarea {
   width: 50%;
   font: inherit;
   padding: 0.15rem;
-  border: 1px solid #ccc;
+  border: 1px solid #00A0E0;
   position: relative;
-  left: 60px;
+  border-radius: 4px;
 }
-
+input {
+    left: 150px;
+}
 input:focus,
 textarea:focus {
   outline: none;
   border-color: #3a0061;
   background-color: #f7ebff;
 }
-
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    resize: none;
+    left: 0px;
+    margin-top: 5px;
+}
 .form-control {
   margin: 1rem 0;
 }
 
 .result {
     width: 25px;
+    margin-left: 150px;
+}
+.basebutton {
+    margin-left: 150px;
 }
 </style>

@@ -1,11 +1,7 @@
 import { createStore } from 'vuex';
-// import Vue from 'vue'
-// import Vuex from 'vuex'
-
-// Vue.use(Vuex)
 
 const store = createStore({
-// const store = new Vuex.store({
+
     state: {
         buttonPrintFormPressed: false,
         serialInput: "",
@@ -17,7 +13,9 @@ const store = createStore({
         testedDevice: "",
         showAlert: false,
         showBtnPrintTestPage: false,
-        showBtnNA: false
+        showBtnNA: false,
+        showInputScanner: false,
+        showButtonWebcamTest: false,
     },
     getters: {
         getButtonPrintStatus(state) {
@@ -46,7 +44,14 @@ const store = createStore({
         },
         getShowBtnNA(state) {
             return state.showBtnNA;
+        },
+        getShowInputScanner(state) {
+            return state.showInputScanner;
+        },
+        getShowButtonWebcamTest(state) {
+            return state.showButtonWebcamTest;
         }
+        
     },
     actions: {},
     mutations: {
@@ -56,42 +61,32 @@ const store = createStore({
         },
         toggleShowAlert(state) {
             state.showAlert = !state.showAlert;
-        },
-        // saveTestInput(state, {device, value}) {
-        //     if (device === 'monitor') {
-        //         state.testMonitorInput = value;
-        //     }
-        //     else if (device === 'printer') {
-        //         state.testPrinterInput = value;
-        //     }
-        //     else if (device === 'scanner') {
-        //         state.testScannerInput = value;
-        //     }
-        //     else if (device === 'webcam') {
-        //         state.testWebCamInput = value;
-        //     }
-
-        // },
-        
+        },     
         saveTestInputMonitor(state, payload) {
             state.testMonitorInput = payload;
             state.showBtnPrintTestPage = false;
             state.showBtnNA = false;
+            state.showInputScanner = false;
+            state.showButtonWebcamTest = false;
         },
         saveTestInputPrinter(state, payload) {
             state.testPrinterInput = payload;
             state.showBtnPrintTestPage = false;
             state.showBtnNA = false;
+            state.showInputScanner = false;
+            state.showButtonWebcamTest = false;
         },
         saveTestInputScanner(state, payload) {
             state.testScannerInput = payload;
             state.showBtnPrintTestPage = false;
-            state.showBtnNA = false;
+            state.showBtnNA = false;state.showInputScanner = false;
+            state.showButtonWebcamTest = false;
         },
         saveTestInputWebcam(state, payload) {
             state.testWebCamInput = payload;
             state.showBtnPrintTestPage = false;
-            state.showBtnNA = false;
+            state.showBtnNA = false;state.showInputScanner = false;
+            state.showButtonWebcamTest = false;
         },
         saveRemark(state, value) {
             state.remarkInput = value;
@@ -111,8 +106,13 @@ const store = createStore({
                 state.showBtnPrintTestPage = true;
                 state.showBtnNA = true;
             }
-            else if (payload === 'scanner' || payload === 'webcam') {
+            else if (payload === 'scanner') {
                 state.showBtnNA = true;
+                state.showInputScanner = true;
+            }
+            else if (payload === 'webcam') {
+                state.showBtnNA = true;
+                state.showButtonWebcamTest = true;
             }
         },
         clearTestedDevice(state) {

@@ -3,7 +3,7 @@
         <img alt="Pan Oston logo" src="../../assets/PO_logo.png" width="330">
         <div class="header">
             <h1>
-                Testkar
+                Testkar applicatie
             </h1>    
         </div>
     </header>    

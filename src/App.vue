@@ -1,6 +1,10 @@
 <template>
+<div class=flex-container>
   <the-header></the-header>
-  <test-main></test-main>
+  <div class=flex-box>
+    <test-main></test-main>
+  </div>
+</div>
 </template>
 
 <script>
@@ -23,5 +27,14 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 0px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+.flex-box {
+  margin-top: 50px;
+  flex-basis: 500px;
 }
 </style>

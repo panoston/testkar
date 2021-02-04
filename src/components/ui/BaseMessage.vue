@@ -1,7 +1,10 @@
 <template>
     <div>
         {{ alertMessage }}
-        <p><base-button @click="printTestPage" v-if="showButtonTestPrint">Print Testpage</base-button></p>
+        <p><base-button @click="printTestPage" v-if="showButtonTestPrint">Print Testpage</base-button>
+        <label for="scanned" v-if="showInputScanner">Scanner input:</label><input type="text" name="scanned" id="scanned" v-if="showInputScanner">
+        <base-button @click="openWebCamTestPage" v-if="showButtonWebcamTest">Open Webcam Test Page</base-button>
+        </p>
     </div>
 </template>
 
@@ -14,6 +17,8 @@ export default {
             alertMessage: '',
             deviceTested: '',
             showButtonTestPrint: false,
+            showInputScanner: false,
+            showButtonWebcamTest: false,
         }
     },
     methods: {
@@ -46,6 +51,29 @@ export default {
                 this.showButtonTestPrint = false;
             }
         },
+        getShowInputScanner() {
+            const showInputScanner = this.$store.getters.getShowInputScanner;
+            
+            if(showInputScanner === true) {
+                this.showInputScanner = true;
+            }
+            else {
+                this.showInputScanner = false;
+            }
+        },
+        getShowBtnWebcamTest() {
+           const showButtonWebcamTest = this.$store.getters.getShowButtonWebcamTest;
+            
+            if(showButtonWebcamTest === true) {
+                this.showButtonWebcamTest = true;
+            }
+            else {
+                this.showButtonWebcamTest = false;
+            }
+        },
+        openWebCamTestPage() {
+            window.open("https://nl.webcamtests.com/", "_blank");
+        },
         printTestPage() {
             let pdfName = 'test bon';
             var doc = new jsPDF('p', 'mm', [70,210]);
@@ -64,6 +92,8 @@ export default {
     mounted() {
         this.setAlertMessage();
         this.getShowButtonTestPrint();
+        this.getShowInputScanner();
+        this.getShowBtnWebcamTest();
         console.log('state of showalert when componend is mounted ' + this.$store.state.showAlert)
     }
 
@@ -71,5 +101,13 @@ export default {
 </script>
 
 <style scoped>
-
+input {
+  /* display: block; */
+  width: 50%;
+  font: inherit;
+  padding: 0.15rem;
+  border: 1px solid #00A0E0;
+  position: relative;
+  border-radius: 4px;
+}
 </style>

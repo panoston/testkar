@@ -2,8 +2,9 @@
     <div class="basemessage">
         <p><base-message></base-message></p>
         <!-- <p><base-button @click="alertClose">Close</base-button></p> -->
-        
-        <p><base-button @click="testResultYes">JA</base-button><base-button @click="testResultNo">NEE</base-button><base-button @click="testResultNA" v-if="showButtonNA">Niet van toepassing</base-button></p>
+        <div>
+            <base-button @click="testResultYes" class="alert-button">JA</base-button><base-button @click="testResultNo" class="alert-button">NEE</base-button><base-button @click="testResultNA" v-if="showButtonNA" class="alert-button">Niet van toepassing</base-button>
+        </div>
     </div>
 </template>
 
@@ -109,5 +110,22 @@ export default {
     padding: 1rem;
     margin: 2rem auto;
     max-width: 40rem;
+    transition: all 5s ease-in-out;
 }
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
 </style>

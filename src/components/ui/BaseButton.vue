@@ -14,13 +14,17 @@ export default {
 button {
     padding: 0.75rem 1.5rem;
     font-family: inherit;
-    background-color: #3a0061;
-    border: 1px solid #3a0061;
+    background-color: #00A0E0;
+    border: 1px solid #00A0E0;
     color: white;
     cursor: pointer;
-    position: relative;
+    /* position: relative; */
     left: 160x;
-    /* margin-left: 50px; */
+    border-radius: 4px;
+    transition: all 0.2s;
+    display: inline-block;
+    width: 165px;
+    margin: 10px;
 }
 
 button:hover,
