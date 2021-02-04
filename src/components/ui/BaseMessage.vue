@@ -1,8 +1,9 @@
 <template>
     <div>
-        {{ alertMessage }}
+        <div v-html="alertMessage"></div>
+        <!-- <span style="white-space: pre-line">{{ alertMessage }}</span> -->
         <p><base-button @click="printTestPage" v-if="showButtonTestPrint">Print Testpage</base-button>
-        <label for="scanned" v-if="showInputScanner">Scanner input:</label><input type="text" name="scanned" id="scanned" v-if="showInputScanner">
+        <label for="scanned" v-if="showInputScanner">Scanner input: </label><input type="text" name="scanned" id="scanned" v-if="showInputScanner">
         <base-button @click="openWebCamTestPage" v-if="showButtonWebcamTest">Open Webcam Test Page</base-button>
         </p>
     </div>
@@ -32,13 +33,13 @@ export default {
                 console.log(this.alertMessage);
             }
             else if(deviceTested === 'printer') {
-                this.alertMessage = "Er wordt nu een bon gegenereerd. Deze moet geprint worden op de aangesloten bonprinter.Wanneer deze bon geprint is, bevestig dit dan met JA, anders klik je op nee. Wanneer het apparaat niet van toepassing is, klik dan op Niet van toepassing.";
+                this.alertMessage = "Er wordt nu een bon gegenereerd. Klik op de knop <b>Print Testpage</b>.<br>Deze moet geprint worden op de aangesloten bonprinter.<br>Wanneer deze bon geprint is, bevestig dit dan met <b>JA</b>, anders klik je op <b>NEE</b>.<br>Wanneer het apparaat niet van toepassing is, klik dan op <b>Niet van toepassing</b>.";
             }
             else if(deviceTested === 'scanner') {
-                this.alertMessage = "Scan een barcode en kijk of dit in de textbox wordt weergegeven.Klik op JA wanneer er text in de textbox is gescand.Klik op Nee wanneer dit niet het geval is. Wanneer het apparaat niet van toepassing is, klik dan op Niet van toepassing.";
+                this.alertMessage = "klik in het textvak <b>Scanner input</b>. Scan een barcode en kijk of dit in de textbox wordt weergegeven.<br>Klik op <b>JA</b> wanneer er text in de textbox is gescand.<br>Klik op <b>NEE</b> wanneer dit niet het geval is.<br>Wanneer het apparaat niet van toepassing is, klik dan op <b>Niet van toepassing</b>.";
             }
             else if(deviceTested === 'webcam') {
-                this.alertMessage = "Wordt het beeld van de webcam op het scherm weergegeven? Klik op JA Wanneer het beeld van de webcam wordt weergegeven. Klik op NEE wanneer dit niet het geval is. Wanneer het apparaat niet van toepassing is, klik dan op Niet van toepassing.";
+                this.alertMessage = "Klik op de knop <b>Open Webcam Test Page</b>. Er wordt een nieuwe tab geopend. Test op deze tab de webcam.<br>Klik op <b>JA</b> Wanneer het beeld van de webcam wordt weergegeven.<br>Klik op <b>NEE</b> wanneer dit niet het geval is.<br>Wanneer het apparaat niet van toepassing is, klik dan op <b>Niet van toepassing</b>.";
             }
         },
         getShowButtonTestPrint() {
