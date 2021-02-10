@@ -45,11 +45,25 @@ export default {
             doc.text(this.$store.state.testScannerInput, 125, 90);
             doc.text("Webcam ", 25, 100);
             doc.text(this.$store.state.testWebCamInput, 125, 100);
-            doc.text("Opmerking", 25, 125);
-            doc.text(this.$store.state.remarkInput, 25, 135);
+            doc.text("NFC Reader ", 25, 110);
+            doc.text(this.$store.state.testNfcReaderInput, 125, 110);
+            doc.text("Fingerprint Reader ", 25, 120);
+            doc.text(this.$store.state.testFingerprintReaderInput, 125, 120);
+            doc.text("RGB Led ", 25, 130);
+            doc.text(this.$store.state.testRGBLedInput, 125, 130);
+            doc.text("Pan Intellipower ", 25, 140);
+            doc.text(this.$store.state.testRGBLedInput, 125, 140);
+            doc.text("Wcd Master/Slave ", 25, 150);
+            doc.text(this.$store.state.testWcdInput, 125, 150);
+            doc.text("Ventilator ", 25, 160);
+            doc.text(this.$store.state.testVentilatorInput, 125, 160);
+            doc.text("Netwerk ", 25, 170);
+            doc.text(this.$store.state.testNetwerkInput, 125, 170);
+            doc.text("Opmerking", 25, 195);
+            doc.text(this.$store.state.remarkInput, 25, 205);
             // draw some rectangles
-            doc.rect(20,53,doc.internal.pageSize.width - 40,53);
-            doc.rect(20, 118, doc.internal.pageSize.width - 40, 50);
+            doc.rect(20,63,doc.internal.pageSize.width - 40,113);
+            doc.rect(20, 188, doc.internal.pageSize.width - 40, 50);
             doc.save(pdfName + '.pdf');
         },
         submitBack() {

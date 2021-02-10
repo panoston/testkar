@@ -52,6 +52,27 @@ export default {
             else if(device === 'webcam') {
                 this.$store.commit('saveTestInputWebcam', 'passed');
             }
+            else if(device === 'nfcreader') {
+                this.$store.commit('saveTestInputNfcReader', 'passed');
+            }
+            else if(device === 'rgbled') {
+                this.$store.commit('saveTestInputRGBLed', 'passed');
+            }
+            else if(device === 'fingerprintreader') {
+                this.$store.commit('saveTestInputFingerprintReader', 'passed');
+            }
+            else if(device === 'panpower') {
+                this.$store.commit('saveTestInputPanPower', 'passed');
+            }
+            else if(device === 'wcd') {
+                this.$store.commit('saveTestInputWcd', 'passed');
+            }
+            else if(device === 'ventilator') {
+                this.$store.commit('saveTestInputVentilator', 'passed');
+            }
+            else if(device === 'netwerk') {
+                this.$store.commit('saveTestInputNetwerk', 'passed');
+            }
             this.alertClose();
         },
         testResultNo() {
@@ -69,7 +90,27 @@ export default {
             else if(device === 'webcam') {
                 this.$store.commit('saveTestInputWebcam', 'failed');
             }
-            
+            else if(device === 'nfcreader') {
+                this.$store.commit('saveTestInputNfcReader', 'failed');
+            }
+            else if(device === 'rgbled') {
+                this.$store.commit('saveTestInputRGBLed', 'failed');
+            }
+            else if(device === 'fingerprintreader') {
+                this.$store.commit('saveTestInputFingerprintReader', 'failed');
+            }
+            else if(device === 'panpower') {
+                this.$store.commit('saveTestInputPanPower', 'failed');
+            }
+            else if(device === 'wcd') {
+                this.$store.commit('saveTestInputWcd', 'failed');
+            }
+            else if(device === 'ventilator') {
+                this.$store.commit('saveTestInputVentilator', 'failed');
+            }
+            else if(device === 'netwerk') {
+                this.$store.commit('saveTestInputNetwerk', 'failed');
+            }
             this.alertClose();
         },
         testResultNA() {
@@ -77,13 +118,36 @@ export default {
             if(device === 'printer') {
                 this.$store.commit('saveTestInputPrinter','not applicable');
             }
+            else if(device === 'monitor') {
+                this.$store.commit('saveTestInputMonitor','not applicable')
+            }
             else if(device === 'scanner') {
                 this.$store.commit('saveTestInputScanner','not applicable')
             }
             else if(device === 'webcam') {
                 this.$store.commit('saveTestInputWebcam','not applicable')
             }
-
+            else if(device === 'nfcreader') {
+                this.$store.commit('saveTestInputNfcReader','not applicable')
+            }
+            else if(device === 'rgbled') {
+                this.$store.commit('saveTestInputRGBLed','not applicable')
+            }
+            else if(device === 'fingerprintreader') {
+                this.$store.commit('saveTestInputFingerprintReader','not applicable')
+            }
+            else if(device === 'panpower') {
+                this.$store.commit('saveTestInputPanPower','not applicable')
+            }
+            else if(device === 'wcd') {
+                this.$store.commit('saveTestInputWcd','not applicable')
+            }
+            else if(device === 'ventilator') {
+                this.$store.commit('saveTestInputVentilator','not applicable')
+            }
+            else if(device === 'netwerk') {
+                this.$store.commit('saveTestInputNetwerk','not applicable')
+            }
             this.alertClose();
         },
         getShowButtonNA() {

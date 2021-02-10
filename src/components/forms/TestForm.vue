@@ -13,6 +13,7 @@
                 <base-button id="testMonitor" @click="testDeviceButton('monitor')" v-if="showButtonMonitor" class="basebutton">Test</base-button>
                 <img class="result" src="../../assets/green-check.png" v-if="showMonitorResultOk">
                 <img class="result" src="../../assets/red-x.png" v-if="showMonitorResultNOk">
+                <img class="result" src="../../assets/na.png" v-if="showMonitorResultNA">
                 </label>
             </div>
             <div class="formcontrol">
@@ -37,6 +38,62 @@
                 <img class="result" src="../../assets/green-check.png" v-if="showWebcamResultOk">
                 <img class="result" src="../../assets/red-x.png" v-if="showWebcamResultNOk">
                 <img class="result" src="../../assets/na.png" v-if="showWebcamResultNA">
+                </label>
+            </div>
+            <div class="form-control">
+                <label for="testNfcReader"><span>Test NFC Reader:</span>
+                <base-button id="testNfcReader" @click="testDeviceButton('nfcreader')" v-if="showButtonNfcReader" class="basebutton">Test</base-button>
+                <img class="result" src="../../assets/green-check.png" v-if="showNfcReaderResultOk">
+                <img class="result" src="../../assets/red-x.png" v-if="showNfcReaderResultNOk">
+                <img class="result" src="../../assets/na.png" v-if="showNfcReaderResultNA">
+                </label>
+            </div>
+            <div class="form-control">
+                <label for="testFingerprintReader"><span>Test Fingerprint Reader:</span>
+                <base-button id="testFingerprintReader" @click="testDeviceButton('fingerprintreader')" v-if="showButtonFingerprintReader" class="basebutton">Test</base-button>
+                <img class="result" src="../../assets/green-check.png" v-if="showFingerprintReaderResultOk">
+                <img class="result" src="../../assets/red-x.png" v-if="showFingerprintReaderResultNOk">
+                <img class="result" src="../../assets/na.png" v-if="showFingerprintReaderResultNA">
+                </label>
+            </div>
+            <div class="form-control">
+                <label for="testRGBLed"><span>Test RGB Led:</span>
+                <base-button id="testRGBLed" @click="testDeviceButton('rgbled')" v-if="showButtonRGBLed" class="basebutton">Test</base-button>
+                <img class="result" src="../../assets/green-check.png" v-if="showRGBLedResultOk">
+                <img class="result" src="../../assets/red-x.png" v-if="showRGBLedResultNOk">
+                <img class="result" src="../../assets/na.png" v-if="showRGBLedResultNA">
+                </label>
+            </div>
+            <div class="form-control">
+                <label for="testPanPower"><span>Pan Intellipower:</span>
+                <base-button id="testPanPower" @click="testDeviceButton('panpower')" v-if="showButtonPanPower" class="basebutton">Test</base-button>
+                <img class="result" src="../../assets/green-check.png" v-if="showPanPowerResultOk">
+                <img class="result" src="../../assets/red-x.png" v-if="showPanPowerResultNOk">
+                <img class="result" src="../../assets/na.png" v-if="showPanPowerResultNA">
+                </label>
+            </div>
+            <div class="form-control">
+                <label for="testWCDMasterSlave"><span>WCD Master / Slave:</span>
+                <base-button id="testWCDMasterSlave" @click="testDeviceButton('wcd')" v-if="showButtonWcd" class="basebutton">Test</base-button>
+                <img class="result" src="../../assets/green-check.png" v-if="showWcdResultOk">
+                <img class="result" src="../../assets/red-x.png" v-if="showWcdResultNOk">
+                <img class="result" src="../../assets/na.png" v-if="showWcdResultNA">
+                </label>
+            </div>
+            <div class="form-control">
+                <label for="testVentilator"><span>Ventilator:</span>
+                <base-button id="testVentilator" @click="testDeviceButton('ventilator')" v-if="showButtonVentilator" class="basebutton">Test</base-button>
+                <img class="result" src="../../assets/green-check.png" v-if="showVentilatorResultOk">
+                <img class="result" src="../../assets/red-x.png" v-if="showVentilatorResultNOk">
+                <img class="result" src="../../assets/na.png" v-if="showVentilatorResultNA">
+                </label>
+            </div>
+            <div class="form-control">
+                <label for="testNetwerk"><span>Netwerk:</span>
+                <base-button id="testNetwerk" @click="testDeviceButton('netwerk')" v-if="showButtonNetwerk" class="basebutton">Test</base-button>
+                <img class="result" src="../../assets/green-check.png" v-if="showNetwerkResultOk">
+                <img class="result" src="../../assets/red-x.png" v-if="showNetwerkResultNOk">
+                <img class="result" src="../../assets/na.png" v-if="showNetwerkResultNA">
                 </label>
             </div>
             <div class="form-control">
@@ -111,6 +168,83 @@ export default {
                 return true;
             }
         },
+        showButtonNfcReader() {
+            const testedDevice = this.$store.state.testedDevice;
+            const testNfcReaderInput = this.$store.state.testNfcReaderInput;
+
+            if (testedDevice === 'nfcreader' || testNfcReaderInput !== '') {
+                return false;
+            }
+            else {
+                return true;
+            }
+        },
+        showButtonFingerprintReader() {
+            const testedDevice = this.$store.state.testedDevice;
+            const testFingerprintReaderInput = this.$store.state.testFingerprintReaderInput;
+
+            if (testedDevice === 'fingerprintreader' || testFingerprintReaderInput !== '') {
+                return false;
+            }
+            else {
+                return true;
+            }
+        },          
+        showButtonRGBLed() {
+            const testedDevice = this.$store.state.testedDevice;
+            const testRGBLedInput = this.$store.state.testRGBLedInput;
+
+            if (testedDevice === 'rgbled' || testRGBLedInput !== '') {
+                return false;
+            }
+            else {
+                return true;
+            }
+        },
+        showButtonPanPower() {
+            const testedDevice = this.$store.state.testedDevice;
+            const testPanPowerInput = this.$store.state.testPanPowerInput;
+
+            if (testedDevice === 'panpower' || testPanPowerInput !== '') {
+                return false;
+            }
+            else {
+                return true;
+            }
+        },
+        showButtonWcd() {
+            const testedDevice = this.$store.state.testedDevice;
+            const testWcdInput = this.$store.state.testWcdInput;
+
+            if (testedDevice === 'wcd' || testWcdInput !== '') {
+                return false;
+            }
+            else {
+                return true;
+            }
+        },
+        showButtonNetwerk() {
+            const testedDevice = this.$store.state.testedDevice;
+            const testNetwerkInput = this.$store.state.testNetwerkInput;
+
+            if (testedDevice === 'netwerk' || testNetwerkInput !== '') {
+                return false;
+            }
+            else {
+                return true;
+            }
+        },
+        showButtonVentilator() {
+            const testedDevice = this.$store.state.testedDevice;
+            const testVentilatorInput = this.$store.state.testVentilatorInput;
+
+            if (testedDevice === 'ventilator' || testVentilatorInput !== '') {
+                return false;
+            }
+            else {
+                return true;
+            }
+        },
         showMonitorResultOk() {
             const resultMonitorInput = this.$store.getters.getTestedResultMonitor;
             if(resultMonitorInput === 'passed') {
@@ -123,6 +257,15 @@ export default {
         showMonitorResultNOk() {
             const resultMonitorInput = this.$store.getters.getTestedResultMonitor;
             if(resultMonitorInput === 'failed') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showMonitorResultNA() {
+            const resultMonitorInput = this.$store.getters.getTestedResultMonitor;
+            if(resultMonitorInput === 'not applicable') {
                 return true;
             }
             else {
@@ -204,6 +347,195 @@ export default {
         showWebcamResultNA() {
             const resultWebcamInput = this.$store.getters.getTestedResultWebcam;
             if(resultWebcamInput === 'not applicable') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showFingerprintReaderResultOk() {
+            const resultFingerprintReaderInput = this.$store.getters.getTestedResultFingerprintReader;
+            if(resultFingerprintReaderInput === 'passed') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showFingerprintReaderResultNOk() {
+            const resultFingerprintReaderInput = this.$store.getters.getTestedResultFingerprintReader;
+            if(resultFingerprintReaderInput === 'failed') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showFingerprintReaderResultNA() {
+            const resultFingerprintReaderInput = this.$store.getters.getTestedResultFingerprintReader;
+            if(resultFingerprintReaderInput === 'not applicable') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showNfcReaderResultOk() {
+            const resultNfcReaderInput = this.$store.getters.getTestedResultNfcReader;
+            if(resultNfcReaderInput === 'passed') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showNfcReaderResultNOk() {
+            const resultNfcReaderInput = this.$store.getters.getTestedResultNfcReader;
+            if(resultNfcReaderInput === 'failed') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showNfcReaderResultNA() {
+            const resultNfcReaderInput = this.$store.getters.getTestedResultNfcReader;
+            if(resultNfcReaderInput === 'not applicable') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showRGBLedResultOk() {
+            const resultRGBLedInput = this.$store.getters.getTestedResultRGBLed;
+            if(resultRGBLedInput === 'passed') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showRGBLedResultNOk() {
+            const resultRGBLedInput = this.$store.getters.getTestedResultRGBLed;
+            if(resultRGBLedInput === 'failed') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showRGBLedResultNA() {
+            const resultRGBLedInput = this.$store.getters.getTestedResultRGBLed;
+            if(resultRGBLedInput === 'not applicable') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showPanPowerResultOk() {
+            const resultPanPowerInput = this.$store.getters.getTestedResultPanPower;
+            if(resultPanPowerInput === 'passed') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showPanPowerResultNOk() {
+            const resultPanPowerInput = this.$store.getters.getTestedResultPanPower;
+            if(resultPanPowerInput === 'failed') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showPanPowerResultNA() {
+            const resultPanPowerInput = this.$store.getters.getTestedResultPanPower;
+            if(resultPanPowerInput === 'not applicable') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showWcdResultOk() {
+            const resultWcdInput = this.$store.getters.getTestedResultWcd;
+            if(resultWcdInput === 'passed') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showWcdResultNOk() {
+            const resultWcdInput = this.$store.getters.getTestedResultWcd;
+            if(resultWcdInput === 'failed') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showWcdResultNA() {
+            const resultWcdInput = this.$store.getters.getTestedResultWcd;
+            if(resultWcdInput === 'not applicable') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showVentilatorResultOk() {
+            const resultVentilatorInput = this.$store.getters.getTestedResultVentilator;
+            if(resultVentilatorInput === 'passed') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showVentilatorResultNOk() {
+            const resultVentilatorInput = this.$store.getters.getTestedResultVentilator;
+            if(resultVentilatorInput === 'failed') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showVentilatorResultNA() {
+            const resultVentilatorInput = this.$store.getters.getTestedResultVentilator;
+            if(resultVentilatorInput === 'not applicable') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showNetwerkResultOk() {
+            const resultNetwerkInput = this.$store.getters.getTestedResultNetwerk;
+            if(resultNetwerkInput === 'passed') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showNetwerkResultNOk() {
+            const resultNetwerkInput = this.$store.getters.getTestedResultNetwerk;
+            if(resultNetwerkInput === 'failed') {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        showNetwerkResultNA() {
+            const resultNetwerkInput = this.$store.getters.getTestedResultNetwerk;
+            if(resultNetwerkInput === 'not applicable') {
                 return true;
             }
             else {

@@ -41,6 +41,27 @@ export default {
             else if(deviceTested === 'webcam') {
                 this.alertMessage = "Klik op de knop <b>Open Webcam Test Page</b>. Er wordt een nieuwe tab geopend. Test op deze tab de webcam.<br>Klik op <b>JA</b> Wanneer het beeld van de webcam wordt weergegeven.<br>Klik op <b>NEE</b> wanneer dit niet het geval is.<br>Wanneer het apparaat niet van toepassing is, klik dan op <b>Niet van toepassing</b>.";
             }
+            else if(deviceTested === 'nfcreader') {
+                this.alertMessage = "Test met een nfc kaart of de lamp van de NFC reader gaat branden.<br>Klik op <b>JA</b> wanneer het lampje op de NFC reader gaat branden.<br>Klik op <b>NEE</b> wanneer dit niet het geval is.<br>Wanneer het apparaat niet van toepassing is, klik dan op <b>Niet van toepassing</b>.";
+            }
+            else if(deviceTested === 'rgbled') {
+                this.alertMessage = "Test of de RGB led gaat branden.<br>Klik op <b>JA</b> wanneer de RGB led gaat branden.<br>Klik op <b>NEE</b> wanneer dit niet het geval is.<br>Wanneer het apparaat niet van toepassing is, klik dan op <b>Niet van toepassing</b>.";
+            }
+            else if(deviceTested === 'fingerprintreader') {
+                this.alertMessage = "Test of de fingerprint reader werkt.<br>Klik op <b>JA</b> wanneer deze functioneert.<br>Klik op <b>NEE</b> wanneer dit niet het geval is.<br>Wanneer het apparaat niet van toepassing is, klik dan op <b>Niet van toepassing</b>.";
+            }
+            else if(deviceTested === 'panpower') {
+                this.alertMessage = "Test of de Pan Intellipower naar behoren werkt.<br>Klik op <b>JA</b> wanneer deze functioneert.<br>Klik op <b>NEE</b> wanneer dit niet het geval is.<br>Wanneer het apparaat niet van toepassing is, klik dan op <b>Niet van toepassing</b>.";
+            }
+            else if(deviceTested === 'wcd') {
+                this.alertMessage = "Test of de master / slave function op de WCD naar behoren werkt.<br>Klik op <b>JA</b> wanneer deze functioneert.<br>Klik op <b>NEE</b> wanneer dit niet het geval is.<br>Wanneer het apparaat niet van toepassing is, klik dan op <b>Niet van toepassing</b>.";
+            }
+            else if(deviceTested === 'ventilator') {
+                this.alertMessage = "Test of de ventilator naar behoren werkt.<br>Klik op <b>JA</b> wanneer deze functioneert.<br>Klik op <b>NEE</b> wanneer dit niet het geval is.<br>Wanneer het apparaat niet van toepassing is, klik dan op <b>Niet van toepassing</b>.";
+            }
+            else if(deviceTested === 'netwerk') {
+                this.alertMessage = "Test of het netwerk naar behoren werkt.<br>Klik op <b>JA</b> wanneer deze functioneert.<br>Klik op <b>NEE</b> wanneer dit niet het geval is.<br>Wanneer het apparaat niet van toepassing is, klik dan op <b>Niet van toepassing</b>.";
+            }
         },
         getShowButtonTestPrint() {
             const showButtonTestPrint = this.$store.getters.getShowBtnPrintTestPage;
@@ -72,6 +93,7 @@ export default {
                 this.showButtonWebcamTest = false;
             }
         },
+        
         openWebCamTestPage() {
             window.open("https://nl.webcamtests.com/", "_blank");
         },

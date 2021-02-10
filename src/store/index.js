@@ -9,6 +9,13 @@ const store = createStore({
         testPrinterInput: "",
         testScannerInput: "",
         testWebCamInput: "",
+        testNfcReaderInput: "",
+        testRGBLedInput: "",
+        testFingerprintReaderInput: "",
+        testPanPowerInput: "",
+        testWcdInput: "",
+        testVentilatorInput: "",
+        testNetwerkInput: "",
         remarkInput: "",
         testedDevice: "",
         showAlert: false,
@@ -38,6 +45,27 @@ const store = createStore({
         },
         getTestedResultWebcam(state) {
             return state.testWebCamInput;                
+        },
+        getTestedResultNfcReader(state) {
+            return state.testNfcReaderInput;                
+        },
+        getTestedResultRGBLed(state) {
+            return state.testRGBLedInput;
+        },
+        getTestedResultFingerprintReader(state) {
+            return state.testFingerprintReaderInput;
+        },
+        getTestedResultPanPower(state) {
+            return state.testPanPowerInput;
+        },
+        getTestedResultWcd(state) {
+            return state.testWcdInput;
+        },
+        getTestedResultVentilator(state) {
+            return state.testVentilatorInput;
+        },
+        getTestedResultNetwerk(state) {
+            return state.testNetwerkInput;
         },
         getShowBtnPrintTestPage(state) {
             return state.showBtnPrintTestPage;
@@ -79,13 +107,64 @@ const store = createStore({
         saveTestInputScanner(state, payload) {
             state.testScannerInput = payload;
             state.showBtnPrintTestPage = false;
-            state.showBtnNA = false;state.showInputScanner = false;
+            state.showBtnNA = false;
+            state.showInputScanner = false;
             state.showButtonWebcamTest = false;
         },
         saveTestInputWebcam(state, payload) {
             state.testWebCamInput = payload;
             state.showBtnPrintTestPage = false;
-            state.showBtnNA = false;state.showInputScanner = false;
+            state.showBtnNA = false;
+            state.showInputScanner = false;
+            state.showButtonWebcamTest = false;
+        },
+        saveTestInputNfcReader(state, payload) {
+            state.testNfcReaderInput = payload;
+            state.showBtnPrintTestPage = false;
+            state.showBtnNA = false;
+            state.showInputScanner = false;
+            state.showButtonWebcamTest = false;
+        },
+        saveTestInputRGBLed(state, payload) {
+            state.testRGBLedInput = payload;
+            state.showBtnPrintTestPage = false;
+            state.showBtnNA = false;
+            state.showInputScanner = false;
+            state.showButtonWebcamTest = false;
+        },
+        saveTestInputFingerprintReader(state, payload) {
+            state.testFingerprintReaderInput = payload;
+            state.showBtnPrintTestPage = false;
+            state.showBtnNA = false;
+            state.showInputScanner = false;
+            state.showButtonWebcamTest = false;
+        },
+        saveTestInputPanPower(state, payload) {
+            state.testPanPowerInput = payload;
+            state.showBtnPrintTestPage = false;
+            state.showBtnNA = false;
+            state.showInputScanner = false;
+            state.showButtonWebcamTest = false;
+        },
+        saveTestInputWcd(state, payload) {
+            state.testWcdInput = payload;
+            state.showBtnPrintTestPage = false;
+            state.showBtnNA = false;
+            state.showInputScanner = false;
+            state.showButtonWebcamTest = false;
+        },
+        saveTestInputVentilator(state, payload) {
+            state.testVentilatorInput = payload;
+            state.showBtnPrintTestPage = false;
+            state.showBtnNA = false;
+            state.showInputScanner = false;
+            state.showButtonWebcamTest = false;
+        },
+        saveTestInputNetwerk(state, payload) {
+            state.testNetwerkInput = payload;
+            state.showBtnPrintTestPage = false;
+            state.showBtnNA = false;
+            state.showInputScanner = false;
             state.showButtonWebcamTest = false;
         },
         saveRemark(state, value) {
@@ -110,9 +189,33 @@ const store = createStore({
                 state.showBtnNA = true;
                 state.showInputScanner = true;
             }
+            else if (payload === 'monitor') {
+                state.showBtnNA = true;
+            }
             else if (payload === 'webcam') {
                 state.showBtnNA = true;
                 state.showButtonWebcamTest = true;
+            }
+            else if (payload === 'nfcreader') {
+                state.showBtnNA = true;
+            }
+            else if (payload === 'rgbled') {
+                state.showBtnNA = true;
+            }
+            else if (payload === 'fingerprintreader') {
+                state.showBtnNA = true;
+            }
+            else if (payload === 'panpower') {
+                state.showBtnNA = true;
+            }
+            else if (payload === 'wcd') {
+                state.showBtnNA = true;
+            }
+            else if (payload === 'ventilator') {
+                state.showBtnNA = true;
+            }
+            else if (payload === 'netwerk') {
+                state.showBtnNA = true;
             }
         },
         clearTestedDevice(state) {
