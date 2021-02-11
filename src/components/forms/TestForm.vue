@@ -4,103 +4,111 @@
         <h2>Test Formulier</h2>
         <form @submit.prevent="submitData">
             <div class="form-control">
-                <label for="serial"><span>Serienummer:</span>
+                <label for="serial"><span>Serienummer:</span></label>
                 <input type="text" name="serial" id="serial" ref="serialInput">
-                </label>
             </div>
             <div class="form-control">
-                <label for="testMonitor"><span>Test monitor:</span>
-                <base-button id="testMonitor" @click="testDeviceButton('monitor')" v-if="showButtonMonitor" class="basebutton">Test</base-button>
-                <img class="result" src="../../assets/green-check.png" v-if="showMonitorResultOk">
-                <img class="result" src="../../assets/red-x.png" v-if="showMonitorResultNOk">
-                <img class="result" src="../../assets/na.png" v-if="showMonitorResultNA">
-                </label>
-            </div>
-            <div class="formcontrol">
-                <label for="testPrinter"><span>Test Printer:</span>
-                <base-button id="testPrinter" @click="testDeviceButton('printer')" v-if="showButtonPrinter" class="basebutton">Test</base-button>
-                <img class="result" src="../../assets/green-check.png" v-if="showPrinterResultOk">
-                <img class="result" src="../../assets/red-x.png" v-if="showPrinterResultNOk">
-                <img class="result" src="../../assets/na.png" v-if="showPrinterResultNA">
-                </label>
-            </div>
-            <div class="formcontrol">
-                <label for="testScanner"><span>Test Scanner:</span>
-                <base-button id="testScanner" @click="testDeviceButton('scanner')" v-if="showButtonScanner" class="basebutton">Test</base-button>
-                <img class="result" src="../../assets/green-check.png" v-if="showScannerResultOk">
-                <img class="result" src="../../assets/red-x.png" v-if="showScannerResultNOk">
-                <img class="result" src="../../assets/na.png" v-if="showScannerResultNA">
-                </label>
+                <label for="testMonitor">Test monitor:</label>
+                <div class="result">
+                    <base-button id="testMonitor" @click="testDeviceButton('monitor')" v-if="showButtonMonitor" class="basebutton">Test</base-button>
+                    <img class="result" src="../../assets/green-check.png" v-if="showMonitorResultOk">
+                    <img class="result" src="../../assets/red-x.png" v-if="showMonitorResultNOk">
+                    <img class="result" src="../../assets/na.png" v-if="showMonitorResultNA">
+                </div>
             </div>
             <div class="form-control">
-                <label for="testWebcam"><span>Test Webcam:</span>
-                <base-button id="testWebcam" @click="testDeviceButton('webcam')" v-if="showButtonWebCam" class="basebutton">Test</base-button>
-                <img class="result" src="../../assets/green-check.png" v-if="showWebcamResultOk">
-                <img class="result" src="../../assets/red-x.png" v-if="showWebcamResultNOk">
-                <img class="result" src="../../assets/na.png" v-if="showWebcamResultNA">
-                </label>
+                <label for="testPrinter"><span>Test Printer:</span></label>
+                <div class="result">
+                    <base-button id="testPrinter" @click="testDeviceButton('printer')" v-if="showButtonPrinter" class="basebutton">Test</base-button>
+                    <img class="result" src="../../assets/green-check.png" v-if="showPrinterResultOk">
+                    <img class="result" src="../../assets/red-x.png" v-if="showPrinterResultNOk">
+                    <img class="result" src="../../assets/na.png" v-if="showPrinterResultNA">
+                </div>
             </div>
             <div class="form-control">
-                <label for="testNfcReader"><span>Test NFC Reader:</span>
-                <base-button id="testNfcReader" @click="testDeviceButton('nfcreader')" v-if="showButtonNfcReader" class="basebutton">Test</base-button>
-                <img class="result" src="../../assets/green-check.png" v-if="showNfcReaderResultOk">
-                <img class="result" src="../../assets/red-x.png" v-if="showNfcReaderResultNOk">
-                <img class="result" src="../../assets/na.png" v-if="showNfcReaderResultNA">
-                </label>
+                <label for="testScanner"><span>Test Scanner:</span></label>
+                <div class="result">
+                    <base-button id="testScanner" @click="testDeviceButton('scanner')" v-if="showButtonScanner" class="basebutton">Test</base-button>
+                    <img class="result" src="../../assets/green-check.png" v-if="showScannerResultOk">
+                    <img class="result" src="../../assets/red-x.png" v-if="showScannerResultNOk">
+                    <img class="result" src="../../assets/na.png" v-if="showScannerResultNA">
+                </div>
             </div>
             <div class="form-control">
-                <label for="testFingerprintReader"><span>Test Fingerprint Reader:</span>
-                <base-button id="testFingerprintReader" @click="testDeviceButton('fingerprintreader')" v-if="showButtonFingerprintReader" class="basebutton">Test</base-button>
-                <img class="result" src="../../assets/green-check.png" v-if="showFingerprintReaderResultOk">
-                <img class="result" src="../../assets/red-x.png" v-if="showFingerprintReaderResultNOk">
-                <img class="result" src="../../assets/na.png" v-if="showFingerprintReaderResultNA">
-                </label>
+                <label for="testWebcam"><span>Test Webcam:</span></label>
+                <div class="result">
+                    <base-button id="testWebcam" @click="testDeviceButton('webcam')" v-if="showButtonWebCam" class="basebutton">Test</base-button>
+                    <img class="result" src="../../assets/green-check.png" v-if="showWebcamResultOk">
+                    <img class="result" src="../../assets/red-x.png" v-if="showWebcamResultNOk">
+                    <img class="result" src="../../assets/na.png" v-if="showWebcamResultNA">
+                </div>
             </div>
             <div class="form-control">
-                <label for="testRGBLed"><span>Test RGB Led:</span>
-                <base-button id="testRGBLed" @click="testDeviceButton('rgbled')" v-if="showButtonRGBLed" class="basebutton">Test</base-button>
-                <img class="result" src="../../assets/green-check.png" v-if="showRGBLedResultOk">
-                <img class="result" src="../../assets/red-x.png" v-if="showRGBLedResultNOk">
-                <img class="result" src="../../assets/na.png" v-if="showRGBLedResultNA">
-                </label>
+                <label for="testNfcReader"><span>Test NFC Reader:</span></label>
+                <div class="result">
+                    <base-button id="testNfcReader" @click="testDeviceButton('nfcreader')" v-if="showButtonNfcReader" class="basebutton">Test</base-button>
+                    <img class="result" src="../../assets/green-check.png" v-if="showNfcReaderResultOk">
+                    <img class="result" src="../../assets/red-x.png" v-if="showNfcReaderResultNOk">
+                    <img class="result" src="../../assets/na.png" v-if="showNfcReaderResultNA">
+                </div>
             </div>
             <div class="form-control">
-                <label for="testPanPower"><span>Pan Intellipower:</span>
-                <base-button id="testPanPower" @click="testDeviceButton('panpower')" v-if="showButtonPanPower" class="basebutton">Test</base-button>
-                <img class="result" src="../../assets/green-check.png" v-if="showPanPowerResultOk">
-                <img class="result" src="../../assets/red-x.png" v-if="showPanPowerResultNOk">
-                <img class="result" src="../../assets/na.png" v-if="showPanPowerResultNA">
-                </label>
+                <label for="testFingerprintReader"><span>Test Fingerprint Reader:</span></label>
+                <div class="result">
+                    <base-button id="testFingerprintReader" @click="testDeviceButton('fingerprintreader')" v-if="showButtonFingerprintReader" class="basebutton">Test</base-button>
+                    <img class="result" src="../../assets/green-check.png" v-if="showFingerprintReaderResultOk">
+                    <img class="result" src="../../assets/red-x.png" v-if="showFingerprintReaderResultNOk">
+                    <img class="result" src="../../assets/na.png" v-if="showFingerprintReaderResultNA">
+                </div>
             </div>
             <div class="form-control">
-                <label for="testWCDMasterSlave"><span>WCD Master / Slave:</span>
-                <base-button id="testWCDMasterSlave" @click="testDeviceButton('wcd')" v-if="showButtonWcd" class="basebutton">Test</base-button>
-                <img class="result" src="../../assets/green-check.png" v-if="showWcdResultOk">
-                <img class="result" src="../../assets/red-x.png" v-if="showWcdResultNOk">
-                <img class="result" src="../../assets/na.png" v-if="showWcdResultNA">
-                </label>
+                <label for="testRGBLed"><span>Test RGB Led:</span></label>
+                <div class="result">
+                    <base-button id="testRGBLed" @click="testDeviceButton('rgbled')" v-if="showButtonRGBLed" class="basebutton">Test</base-button>
+                    <img class="result" src="../../assets/green-check.png" v-if="showRGBLedResultOk">
+                    <img class="result" src="../../assets/red-x.png" v-if="showRGBLedResultNOk">
+                    <img class="result" src="../../assets/na.png" v-if="showRGBLedResultNA">
+                </div>
             </div>
             <div class="form-control">
-                <label for="testVentilator"><span>Ventilator:</span>
-                <base-button id="testVentilator" @click="testDeviceButton('ventilator')" v-if="showButtonVentilator" class="basebutton">Test</base-button>
-                <img class="result" src="../../assets/green-check.png" v-if="showVentilatorResultOk">
-                <img class="result" src="../../assets/red-x.png" v-if="showVentilatorResultNOk">
-                <img class="result" src="../../assets/na.png" v-if="showVentilatorResultNA">
-                </label>
+                <label for="testPanPower"><span>Pan Intellipower:</span></label>
+                <div class="result">
+                    <base-button id="testPanPower" @click="testDeviceButton('panpower')" v-if="showButtonPanPower" class="basebutton">Test</base-button>
+                    <img class="result" src="../../assets/green-check.png" v-if="showPanPowerResultOk">
+                    <img class="result" src="../../assets/red-x.png" v-if="showPanPowerResultNOk">
+                    <img class="result" src="../../assets/na.png" v-if="showPanPowerResultNA">
+                </div>
             </div>
             <div class="form-control">
-                <label for="testNetwerk"><span>Netwerk:</span>
-                <base-button id="testNetwerk" @click="testDeviceButton('netwerk')" v-if="showButtonNetwerk" class="basebutton">Test</base-button>
-                <img class="result" src="../../assets/green-check.png" v-if="showNetwerkResultOk">
-                <img class="result" src="../../assets/red-x.png" v-if="showNetwerkResultNOk">
-                <img class="result" src="../../assets/na.png" v-if="showNetwerkResultNA">
-                </label>
+                <label for="testWCDMasterSlave"><span>WCD Master / Slave:</span></label>
+                <div class="result">
+                    <base-button id="testWCDMasterSlave" @click="testDeviceButton('wcd')" v-if="showButtonWcd" class="basebutton">Test</base-button>
+                    <img class="result" src="../../assets/green-check.png" v-if="showWcdResultOk">
+                    <img class="result" src="../../assets/red-x.png" v-if="showWcdResultNOk">
+                    <img class="result" src="../../assets/na.png" v-if="showWcdResultNA">
+                </div>
             </div>
             <div class="form-control">
-                <label for="remark"><span>Opmerking:</span>
+                <label for="testVentilator"><span>Ventilator:</span></label>
+                <div class="result">
+                    <base-button id="testVentilator" @click="testDeviceButton('ventilator')" v-if="showButtonVentilator" class="basebutton">Test</base-button>
+                    <img class="result" src="../../assets/green-check.png" v-if="showVentilatorResultOk">
+                    <img class="result" src="../../assets/red-x.png" v-if="showVentilatorResultNOk">
+                    <img class="result" src="../../assets/na.png" v-if="showVentilatorResultNA">
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="testNetwerk"><span>Netwerk:</span></label>
+                <div class="result">
+                    <base-button id="testNetwerk" @click="testDeviceButton('netwerk')" v-if="showButtonNetwerk" class="basebutton">Test</base-button>
+                    <img class="result" src="../../assets/green-check.png" v-if="showNetwerkResultOk">
+                    <img class="result" src="../../assets/red-x.png" v-if="showNetwerkResultNOk">
+                    <img class="result" src="../../assets/na.png" v-if="showNetwerkResultNA">
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="remark"><span>Opmerking:</span></label>
                 <textarea name="remark" id="remark" ref="remarkInput"></textarea>
-                
-                </label>
             </div>
             <div class="form-control"><base-button @click="submitData">Print Rapport</base-button></div>
 
@@ -569,16 +577,34 @@ export default {
 body {
     background-size: cover;
 }
-label {
+
+.form-control {
+  display: flex;
+  justify-content: flex-end;
+  padding: .5em;
+  
+}
+
+.form-control > label {
   font-weight: bold;
-  display: block;
-  margin-bottom: 0.5rem;
   text-align: left;
+  flex: 1;
+  padding: 1em 1em .5em 1em;
+}
+.form-control > input {
+    flex: 2;
+}
+
+.form-control > .basebutton {
+    flex: 2;
+}
+
+.form-control > .result {
+    flex: 2;
 }
 
 input,
 textarea {
-  /* display: block; */
   width: 50%;
   font: inherit;
   padding: 0.15rem;
@@ -586,9 +612,7 @@ textarea {
   position: relative;
   border-radius: 4px;
 }
-input {
-    left: 150px;
-}
+
 input:focus,
 textarea:focus {
   outline: none;
@@ -604,15 +628,12 @@ textarea {
     left: 0px;
     margin-top: 5px;
 }
-.form-control {
-  margin: 1rem 0;
+img {
+    width: 25px;
 }
 
 .result {
-    width: 25px;
-    margin-left: 150px;
+    align-content: center;
 }
-.basebutton {
-    margin-left: 150px;
-}
+
 </style>
